@@ -1,0 +1,30 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>To Do List</title>
+</head>
+<body>
+  <div class="box" id="heading">
+    <h1><%=kindofday%></h1>
+  </div>
+  <div class="box" >
+  <%for(var i=0;i<name.length;i++){%>
+    <form action="/delete" method="post">
+    <div class="item">
+      <input type="checkbox" name="checkbox" value="<%= name[i].name %>" onChange="this.form.submit()" >
+   <p><%= name[i].name %></p>
+ <!-- </div> -->
+   <input type="hidden" name="itemtodelete" value="<%= kindofday %>" >
+ </form>
+ </div>
+  <%}%>
+  <div class="item">
+    <form action="/" method="post">
+    <input type="text" name="item" required placeholder="New Item" autocomplete="off">
+    <button type="submit" name="kindofday" value="<%= kindofday %>">+</button>
+  </form>
+  </div>
+  </div>
+</ul>
+</body>
+</html>
